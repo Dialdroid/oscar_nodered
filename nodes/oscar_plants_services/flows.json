@@ -63,7 +63,6 @@
         ],
         "meta": {
             "module": "node-red-contrib-oscar-plants",
-            "type": "oscar",
             "version": "1.0.0",
             "author": "Vicente Rodriguez <vicente.rdguezb@gmail.com, vrodben1@i3m.upv.es>",
             "desc": "Servicio Plants Clasification",
