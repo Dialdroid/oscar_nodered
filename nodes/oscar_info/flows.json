@@ -65,12 +65,11 @@
         ],
         "meta": {
             "module": "node-red-contrib-oscar-info",
-            "type": "oscar",
             "version": "1.0.0",
             "author": "Vicente Rodriguez Benitez <vicente.rdguezb@gmail.com, vrodben1@i3m.upv.es>",
             "desc": "OSCAR  information",
             "keywords": "node-red,oscar, information",
-            "license": "GPL-3.0"
+            "license": "Apache-2.0"
         },
         "credentials": {
             "Password": ""
