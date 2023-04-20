@@ -4,7 +4,7 @@
         "type": "subflow",
         "name": "OSCAR Text-Speech Services",
         "info": "<main>\n    <section>\n        <article>\n            <h3>About Text to Speech </h3>\n            <p>Google Speech [1] is a simple multiplatform command line tool to read text using Google Translate TTS (Text To Speech) API .</p>\n            <p>See also gTTS [2], for a similar but probably more advanced, and actively maintained project.</p>\n            <p>gTTS (Google Text-to-Speech), a Python library and CLI tool to interface with Google Translate's text-to-speech API. Write spoken mp3 data to a file, a file-like object (bytestring) for further audio manipulation, or stdout [3]. </p>\n            <ul>\n                <li>\n                    <a rel=\"stylesheet\" href=\"https://pypi.org/project/google-speech/\">[1]]</a>\n                    <a rel=\"stylesheet\" href=\"https://github.com/pndurette/gTTS/\">[2]</a>\n                    <a rel=\"stylesheet\" href=\"https://gtts.readthedocs.org/\">[3]</a>\n                </li>\n            </ul>\n        </article>\n        <article>\n            <h3>About Text Speech Service in OSCAR</h3>\n            <p>This node applies text to speech as an OSCAR service by using the Google Speech library, obtaining audio files from plain text.</p>\n            <p>For more information consult:</p>\n            <ul>\n                <li>\n                    <a rel=\"stylesheet\" href=\"https://oscar.grycap.net/blog/post-oscar-text-to-speech/\">[1] </a>\n                    <a rel=\"stylesheet\" href=\"https://github.com/grycap/oscar/tree/master/examples/text-to-speech-google\">[2]</a>\n                </li>\n            </ul>\n        </article>\n        <article>\n            <h3>Inputs</h3>\n            <p>The input variables will be the basic variables (OSCAR server url and credentials). In addition to the name that has been given to the text speech service on the OSCAR server. Inside the <code>msg.payload</code> entry must be the text to be converted. With all these elements, the service token is searched and then a request is made to the service ( POST /run/{serviceName})</p>\n            <ul>\n                <li>\n                    <a rel=\"stylesheet\" href=\"https://docs.oscar.grycap.net/api/\">Syns </a>\n                </li>\n            </ul>\n        </article>\n        <article>\n            <h3>Outputs</h3>\n            <p> The node returns via <code>msg.payload</code> the input text to audio (base64). Audio can be played by the audio out node found in dashboard elements.</p>\n        </article>\n    </section>\n</main>\n<footer>\n        GRyCAP (Grupo de Grid y Computación de Altas Prestaciones) - UPV\n</footer>",
-        "category": "",
+        "category": "OSCAR",
         "in": [
             {
                 "x": 40,
@@ -18,11 +18,21 @@
         ],
         "out": [
             {
-                "x": 1500,
+                "x": 1560,
                 "y": 460,
                 "wires": [
                     {
                         "id": "9594b737369ed521",
+                        "port": 0
+                    }
+                ]
+            },
+            {
+                "x": 1360,
+                "y": 560,
+                "wires": [
+                    {
+                        "id": "dcfaef9433f5b0f2",
                         "port": 0
                     }
                 ]
@@ -69,10 +79,11 @@
             "keywords": "node-red,oscar, text-speech",
             "license": "Apache-2.0"
         },
-        "credentials": {
-            "Password": ""
-        },
         "color": "#3FADB5",
+        "outputLabels": [
+            "Audio (base64)",
+            "Output data (complete json)"
+        ],
         "icon": "font-awesome/fa-bullhorn",
         "status": {
             "x": 1620,
