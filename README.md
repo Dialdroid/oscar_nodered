@@ -15,3 +15,5 @@ Example workflow execution:
      • node-red-contrib-exec-queue (npm install node-red-contrib-exec-queue)
      • node-red-contrib-minio-all (npm install node-red-contrib-minio-all)
      • node-red-dashboard (npm install node-red-dashboard)
+     • node-red-contrib-play-audio (npm install node-red-contrib-play-audio)
+     
