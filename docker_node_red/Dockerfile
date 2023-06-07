@@ -1,10 +1,10 @@
-# Usar imagen oficial de Node-RED
+# Use official Node-RED image
 FROM nodered/node-red
 
-# Definir el directorio de trabajo en el contenedor Docker
+# Set the working directory in the Docker container
 WORKDIR /usr/src/node-red
 
-# Instalar flujos Node-RED adicionales
+# Install additional Node-RED flows
 RUN npm install node-red-contrib-string && \
     npm install node-red-node-base64 && \
     npm install node-red-contrib-time_interval && \
@@ -14,33 +14,25 @@ RUN npm install node-red-contrib-string && \
     npm install node-red-dashboard && \
     npm install node-red-contrib-play-audio
 
-# Instalar git para clonar el repositorio
+# Install git to clone the repository
 USER root
 RUN apk update && \
     apk add git
 
-# Clonar el repositorio en el directorio actual
+# Clone the repository into the current directory
 RUN git clone https://github.com/grycap/oscar_nodered.git
 
-# Copiar los flujos personalizados a /data
+# Copy the custom flows to /data
 COPY flows.json /data/flows.json
-#   cp oscar_nodered/examples/example_workflows_dashboard/workflow_all_services.json /data/flows.json 
-#   cp oscar_nodered/examples/example_nodered_flow/oscar_cowsay_services/flows.json /data/flows.json && \
-#   cp oscar_nodered/examples/example_nodered_flow/oscar_grayifyplants_services/flows.json /data/flows.json && \
-#   cp oscar_nodered/examples/example_nodered_flow/oscar_info/flows.json /data/flows.json && \
-#   cp oscar_nodered/examples/example_nodered_flow/oscar_plantsync_services/flows.json /data/flows.json && \
-#   cp oscar_nodered/examples/example_nodered_flow/oscar_services/flows.json /data/flows.json && \
-#   cp oscar_nodered/examples/example_nodered_flow/oscar_textspeech_services/flows.json /data/flows.json 
 
+# Copy the custom settings to /data
+COPY settings.js /data/settings.js
 
-# Copiar el script de combinación de flujos al contenedor
-# COPY combineFlows.js ./combineFlows.js
-
-# Cambiar al usuario de node-red para ejecutar el servicio
+# Switch to the node-red user to run the service
 USER node-red
 
-# Indicar que el contenedor está escuchando en el puerto 1880
+# Specify that the container is listening on port 1880
 EXPOSE 1880
 
-# Ejecutar Node-RED
+# Run Node-RED
 CMD ["npm", "start"]
