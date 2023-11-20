@@ -1,4 +1,4 @@
-# oscar_nodered
+# oscar-nodered
 This is the repository where the nodes and interaction flows of NodeRED with OSCAR are located. In addition to the examples of workflows.
 
 To run the subflows (nodes) or workflows (examples), it is necessary to install the following nodes (dependencies) for everything to work correctly.
